@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Chong on 2015/12/20.
  * 自定义SimpleAdapter
  */
-public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHolder> {
     protected LayoutInflater mInflater;
     protected Context mContext;
     protected List<String> mData;
@@ -56,10 +56,11 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tv.setText(mData.get(position));
         setUpItemEvent(holder);
     }
+
 
     /**
      * 点击事件
@@ -94,6 +95,15 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
         return mData.size();
     }
 
+    protected class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView tv;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            tv = (TextView) itemView.findViewById(R.id.id_tv);
+        }
+    }
+
     public void addData(int position) {
         mData.add(position, "Add one");
 
@@ -107,11 +117,4 @@ public class SimpleAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 }
 
-class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView tv;
 
-    public MyViewHolder(View itemView) {
-        super(itemView);
-        tv = (TextView) itemView.findViewById(R.id.id_tv);
-    }
-}
