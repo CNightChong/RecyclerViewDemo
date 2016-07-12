@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "long click: " + position,
                         Toast.LENGTH_SHORT).show();
                 // 长按删除
-//                mAdapter.deleteData(position);
+                mAdapter.deleteData(position);
             }
         });
 
