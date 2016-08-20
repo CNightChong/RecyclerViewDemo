@@ -40,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //设置点击
-        mAdapter.setOnIteClickLinstener(new SimpleAdapter.OnItemClickLinstener() {
+        mAdapter.setOnIteClickListener(new SimpleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "click: " + position,
                         Toast.LENGTH_SHORT).show();
             }
         });
-        mAdapter.setOnItemLongClickLinstener(new SimpleAdapter.OnItemLongClickLinstener() {
+        mAdapter.setOnItemLongClickListener(new SimpleAdapter.OnItemLongClickListener() {
             @Override
             public void onItemLongClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "long click: " + position,

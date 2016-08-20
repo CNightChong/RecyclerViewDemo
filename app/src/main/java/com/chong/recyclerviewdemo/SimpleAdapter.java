@@ -21,26 +21,26 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHold
     /**
      * 点击接口
      */
-    public interface OnItemClickLinstener {
+    public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
 
     /**
      * 长按点击接口
      */
-    public interface OnItemLongClickLinstener {
+    public interface OnItemLongClickListener {
         void onItemLongClick(View view, int position);
     }
 
-    private OnItemClickLinstener mOnItemClickLinstener;
-    private OnItemLongClickLinstener mOnItemLongClickLinstener;
+    private OnItemClickListener mOnItemClickListener;
+    private OnItemLongClickListener mOnItemLongClickListener;
 
-    public void setOnIteClickLinstener(OnItemClickLinstener mOnItemClickLinstener) {
-        this.mOnItemClickLinstener = mOnItemClickLinstener;
+    public void setOnIteClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
     }
 
-    public void setOnItemLongClickLinstener(OnItemLongClickLinstener mOnItemLongClickLinstener) {
-        this.mOnItemLongClickLinstener = mOnItemLongClickLinstener;
+    public void setOnItemLongClickListener(OnItemLongClickListener mOnItemLongClickListener) {
+        this.mOnItemLongClickListener = mOnItemLongClickListener;
     }
 
     public SimpleAdapter(Context context, List<String> data) {
@@ -71,18 +71,18 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mOnItemClickLinstener != null) {
+                if (mOnItemClickListener != null) {
                     int layoutPosition = holder.getLayoutPosition();
-                    mOnItemClickLinstener.onItemClick(holder.itemView, layoutPosition);
+                    mOnItemClickListener.onItemClick(holder.itemView, layoutPosition);
                 }
             }
         });
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (mOnItemLongClickLinstener != null) {
+                if (mOnItemLongClickListener != null) {
                     int layoutPosition = holder.getLayoutPosition();
-                    mOnItemLongClickLinstener.onItemLongClick(holder.itemView, layoutPosition);
+                    mOnItemLongClickListener.onItemLongClick(holder.itemView, layoutPosition);
                 }
                 // 返回true，LongClick消费点击事件，拦截Click
                 return true;
